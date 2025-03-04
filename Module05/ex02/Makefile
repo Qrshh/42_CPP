@@ -7,7 +7,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC)
 
 SRCS = src/main.cpp \
        src/Bureaucrat.cpp \
-	   src/Form.cpp
+	   src/AForm.cpp\
+	   src/ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
