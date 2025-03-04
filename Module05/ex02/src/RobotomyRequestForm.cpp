@@ -19,5 +19,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
-    if(this->get)
+    if(this->getSigned() == false)
+		throw FormNotSignedException();
+	if(executor.getGrade() > this->getGradeToExec())
+		throw GradeTooLowException();
+	std::cout << "BRRRRRRRRRRRRRRRRRR.........." << std::endl;
+	if(rand() %2 == 0)
+		std::cout << this->target << " has been robotomized " << std::endl;
+	else 
+		std::cout << this->target << " has failed to be robotomized " << std::endl;
 }

@@ -67,6 +67,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 	return ("The bureaucrat's grade is higher than the form's grade");
 }
 
+const char *AForm::FormNotSignedException::what() const throw()
+{
+	return ("The form is not signed");
+}
+
 std::ostream &operator<<(std::ostream &o, const AForm &f)
 {
 	o << f.getName() << ", grade for signing: " 
