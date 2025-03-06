@@ -1,35 +1,47 @@
-# include "Bureaucrat.hpp"
 # include "AForm.hpp"
-# include "ShrubberyCreationForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "PresidentialPardonForm.hpp"
+# include "Intern.hpp"
+# include "Bureaucrat.hpp"
 
-int     main(void)
+int	main(void)
 {
-	try {
-		ShrubberyCreationForm shrubbery("MGK");
-		RobotomyRequestForm robotomy("NGOLO");
-		PresidentialPardonForm president("putin");
-
-		Bureaucrat alice("Alice", 1);
-		Bureaucrat mark("Mark", 3);
-		Bureaucrat danas("Danas", 2);
-
-		alice.signForm(shrubbery);
-		alice.executeForm(shrubbery);
-
-		std::cout << std::endl;
-
-		mark.signForm(robotomy);
-		mark.executeForm(robotomy);
-
-		std::cout << std::endl;
-
-		danas.signForm(president);
-		danas.executeForm(president);
-	}
-	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		try {
+			Intern	someRandomIntern;
+			Bureaucrat bob("bob", 26);
+			AForm* 	rrf;
+			rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+			std::cout << *rrf << std::endl;
+
+			bob.signForm(*rrf);
+
+			std::cout << std::endl;
+
+			bob.executeForm(*rrf);
+
+			std::cout << std::endl;
+
+			std::cout << *rrf << std::endl;
+			delete rrf;
+
+			rrf = someRandomIntern.makeForm("robotomy request", "28B");
+			std::cout << *rrf << std::endl;
+			std::cout << std::endl;
+			delete rrf;
+
+			rrf = someRandomIntern.makeForm("presidential pardon", "28A");
+			std::cout << *rrf << std::endl;
+			std::cout << std::endl;
+			delete rrf;
+
+			rrf = someRandomIntern.makeForm("oui oui baguette", "28A");
+			std::cout << *rrf << std::endl;
+			std::cout << std::endl;
+			delete rrf;
+
+		} catch (Intern::UnknownFormException & e) {
+			std::cout << e.what() << std::endl;
+		}
 	}
+
+	return (0);
 }

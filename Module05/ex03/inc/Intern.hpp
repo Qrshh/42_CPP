@@ -8,7 +8,7 @@
 class Intern{
 	private:
 		std::string formNames[3];
-		AForm* (Intern::*makeForm[3])(const std::string);
+		AForm* (Intern::*formMakers[3])(const std::string&);
 	public:
 		Intern();
 		Intern(const Intern &other);

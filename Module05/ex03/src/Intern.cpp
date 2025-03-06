@@ -8,9 +8,9 @@ Intern::Intern()
 	formNames[0] = "shrubbery creation";
 	formNames[1] = "presidential pardon";
 	formNames[2] = "robotomy request";
-	makeForm[0] = &Intern::makeShrubberyCreationForm;
-	makeForm[1] = &Intern::makePresidentialPardonForm;
-	makeForm[2] = &Intern::makeRobotomyRequestForm;
+	formMakers[0] = &Intern::makeShrubberyCreationForm;
+	formMakers[1] = &Intern::makePresidentialPardonForm;
+	formMakers[2] = &Intern::makeRobotomyRequestForm;
 }
 
 Intern::~Intern() {}
@@ -24,7 +24,7 @@ Intern &Intern::operator=(const Intern &other)
 	if (this != &other)
 	{
 		this->formNames[0] = other.formNames[0];
-		makeForm[0] = other.makeForm[0];
+		formMakers[0] = other.formMakers[0];
 	}
 	return *this;
 }
@@ -50,8 +50,8 @@ AForm* Intern::makeForm(std::string name, const std::string target){
 	while(++i < 3)
 	{
 		if(formNames[i] == name){
-			std::cout << "Intern creates " << std::endl;
-			return ((this->*makeForm[i])(target));
+			std::cout << "Intern creates " << name << std::endl;
+			return ((this->*formMakers[i])(target));
 		}
 	}
 	throw UnknownFormException();
