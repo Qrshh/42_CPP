@@ -5,7 +5,7 @@ int     main(void)
 {
 	try {
 		try {
-			Bureaucrat  obj("waizi", 8);
+			Bureaucrat  obj("test", 8);
 			Form    form("A4", 7, 7);
 
 			std::cout << obj << std::endl;
@@ -17,7 +17,7 @@ int     main(void)
 		}
 
 		try {
-			Bureaucrat  obj("Shady", 1);
+			Bureaucrat  obj("test1", 1);
 			Form    form("A4", 2, 7);
 
 			std::cout << obj << std::endl;

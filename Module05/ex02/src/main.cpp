@@ -13,7 +13,7 @@ int     main(void)
 
 		Bureaucrat alice("Alice", 1);
 		Bureaucrat mark("Mark", 3);
-		Bureaucrat danas("Danas", 2);
+		Bureaucrat danas("Danas", 150);
 
 		alice.signForm(shrubbery);
 		alice.executeForm(shrubbery);
