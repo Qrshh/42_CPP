@@ -1,7 +1,12 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <iostream>
+
+# include <iostream>
+# include <string>
+# include <climits>
+# include <iomanip>
+# include <algorithm>
 
 class ScalarConverter {
 	private:
@@ -13,6 +18,5 @@ class ScalarConverter {
 
 		static void convert(const std::string &value);
 };
-
 
 #endif
