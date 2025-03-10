@@ -1,4 +1,4 @@
-TARGET = span
+TARGET = ex02
 CXX = c++
 S = src
 INC = inc
@@ -6,7 +6,6 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC)
 
 
 SRCS = src/main.cpp \
-		src/Span.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

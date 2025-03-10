@@ -35,7 +35,6 @@ int Span::shortestSpan() {
 		minSpan = std::min(minSpan, sortedArr[i] - sortedArr[i - 1]);
 		if (minSpan == 1) return 1; //1 est le plus petit écart possible
 	}
-
 	return minSpan;
 }
 
