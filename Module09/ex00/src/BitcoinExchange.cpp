@@ -1,4 +1,4 @@
-#include "../inc/BitcoinExchange.hpp"
+#include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(){}
 
@@ -17,7 +17,7 @@ BitcoinExchange::~BitcoinExchange(){}
 
 
 void BitcoinExchange::loadMap(const std::string &input){
-	std::ifstream file(input);
+	std::ifstream file(input.c_str());
 	if(!file){
 		std::cerr << "Error\n The program cannot open the data file" << std::endl;
 		return ;
@@ -31,7 +31,7 @@ void BitcoinExchange::loadMap(const std::string &input){
 		std::string date, price;
 		if(getline(ss, date, ',') && getline(ss, price)){
 			try{
-				map[date] = std::stof(price);
+				map[date] = std::atof(price.c_str());
 			} catch (const std::invalid_argument &){
 				std::cerr << "Error\n Invalid price in the data file (NaN)" << std::endl;
 			} catch (const std::out_of_range &){
@@ -129,7 +129,7 @@ static bool checkNumber(const std::string &price){
 		return false;
 	}
 
-	if(number > INT_MAX){
+	if(number > static_cast<float>(INT_MAX)){
 		std::cerr << "Error\n Number too large" << std::endl;
 		return false;
 	}
@@ -138,7 +138,7 @@ static bool checkNumber(const std::string &price){
 }
 
 void BitcoinExchange::loadData(const std::string &data){
-	std::ifstream file(data);
+	std::ifstream file(data.c_str());
 	if(!file){
 		std::cerr << "Error\n The program cannot open the user data file" << std::endl;
 		return ;

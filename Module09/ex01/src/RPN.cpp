@@ -9,6 +9,16 @@ RPN& RPN::operator=(const RPN &other){
 }
 RPN::~RPN(){}
 
+static int toInt(const std::string& s) {
+	std::istringstream iss(s);
+	int n;
+	if (!(iss >> n)) {
+		throw std::runtime_error("Erreur : token invalide");
+	}
+	return n;
+}
+
+
 static bool isOperator(const std::string &token){
 	return token == "+" || token == "-" || token == "/" || token == "*"; 
 }
@@ -43,7 +53,7 @@ int RPN::evaluate(const std::string &expr){
 	while(iss >> token){
 		if(isdigit(token[0]) || (token.size() > 1 && isdigit(token[1]))){
 			try {
-                stack.push(std::stoi(token));
+                stack.push(toInt(token));
             } catch (const std::invalid_argument&) {
                 throw std::runtime_error("Erreur : token invalide ");
 			}

@@ -22,7 +22,7 @@ class PMergeMe{
 
 		template <typename Container>
 		void mergeSortedAndSmaller(Container &sorted, const Container &smaller){
-			for(typename Container::const_iterator it = smaller.begin(); it++){
+			for(typename Container::const_iterator it = smaller.begin(); it != smaller.end(); ++it){
 				typename Container::iterator pos = sorted.begin();
 				while(pos != sorted.end() && *pos < *it)
 					++pos;
@@ -65,6 +65,14 @@ class PMergeMe{
 		~PMergeMe();
 		PMergeMe(const PMergeMe &other);
 		PMergeMe &operator=(const PMergeMe &other);
+
+		bool parse(char **av);
+		void fillInContainers(char **av);
+		void sort();
+		void displayVector(std::vector<int> &vec);
+		void Display();
+		bool isSorted();
+		bool hasDuplicate();
 };
 
 
