@@ -50,13 +50,13 @@ void PMergeMe::sort(){
 	start = std::clock();
 	fordJohnsonSort(this->_vec);
 	end = std::clock();
-	_vecTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	_vecTime = (static_cast<double>(end - start) / CLOCKS_PER_SEC) * 1000000;
 
 	//sort list
 	start = std::clock();
 	fordJohnsonSort(this->_list);
 	end = std::clock();
-	_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	_listTime = (static_cast<double>(end - start) / CLOCKS_PER_SEC) * 1000000;
 }
 
 void PMergeMe::displayVector(std::vector<int> &vec){
